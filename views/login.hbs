@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    {{> header }}
+    <style>
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-login text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <form action="/login" method="POST" class="form-signin">
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <label for="username" class="sr-only">Email address</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Username"
+                        required autofocus>
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                        required>
+                    <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign in</button>
+                </form>
+                {{#if message.error}}
+                <div class="alert alert-danger mt-5" role="alert">{{message.content}}</div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+    {{> footer }}
+
+</body>
+
+</html>

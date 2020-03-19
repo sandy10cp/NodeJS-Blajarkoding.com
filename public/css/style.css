@@ -1,0 +1,95 @@
+body {
+    background-color: #DAE3E7;
+}
+
+.baner {
+    background-color: white;
+    margin-top: 70px;
+    padding-bottom: 20px;
+    ;
+}
+
+.about-me {
+    background-color: white;
+}
+
+.project {
+    display: flex;
+}
+
+.place {
+    background-color: white;
+}
+
+.latest-project {
+    background-color: white;
+}
+
+.skills {
+    background-color: white;
+}
+
+.education {
+    background-color: white;
+}
+
+.page-footer {
+    background-color: black;
+    color:#DAE3E7;
+}
+
+a h5 {
+    color: #3aaa64;
+}
+
+h2, h5 {
+    color: #545e69;
+}
+
+h1 {
+    color: #49515a;
+}
+
+a {
+    color: #3aaa64;
+}
+
+a:hover {
+    color: #3aaa64;
+    cursor: pointer;
+}
+
+span {
+    color: #c2c5c7;
+}
+
+span #tag {
+    background-color: #545e69;
+}
+
+
+.nav-item a:hover {
+    border-bottom-style: solid;
+    border-bottom-color: #3aaa64;
+    border-bottom-width: 2px;
+}
+
+a.active {
+    border-bottom-style: solid;
+    border-bottom-color: #3aaa64;
+    border-bottom-width: 2px;
+}
+
+#navbar {
+    top: 0;
+    transition: top 0.4s;
+}
+
+.card{
+    border-radius: 0px !important;
+}
+
+.card .card-img-top {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}

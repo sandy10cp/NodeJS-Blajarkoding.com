@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Tutorial</title>
+    <script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>
+    <style>
+        body {
+            background: #fcfcfc;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .tombol {
+            padding: 8px 15px;
+            border-radius: 3px;
+            background: #ECF0F1;
+            border: none;
+            color: #232323;
+            font-size: 12pt;
+        }
+
+        .kotak {
+            margin: 20px auto;
+            background: #1ABC9C;
+            width: 900px;
+            padding: 20px 50px 50px 50px;
+            border-radius: 3px;
+        }
+
+        .posting {
+            margin: 20px auto;
+            width: 900px;
+        }
+
+        pre {
+            margin: 20px auto;
+            background-color: #232323;
+            width: 900px;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kotak">
+        <input type="text" name="title" id="title" placeholder="Title...">
+        <br>
+        <input type="text" name="categori" id="categori" placeholder="Category...">
+        <br>
+        <input type="datetime-local" name="tanggal" id="tanggal">
+        <textarea name="posting" class="ckeditor" id="ckeditor"></textarea>
+        <br />
+        <button class="simpan">Simpan</button>
+    </div>
+
+    <div class="pesan">
+
+    </div>
+
+    <script>
+        const simpan = document.querySelector('.simpan');
+        simpan.addEventListener('click', function (e) {
+            e.preventDefault();
+            let data = CKEDITOR.instances.ckeditor.getData();
+            //console.log(data);
+            const title = document.querySelector('#title').value;
+            const tanggal = document.querySelector('#tanggal').value;
+            const categori = document.querySelector('#categori').value;
+            //document.querySelector('.posting').innerHTML = data;
+            const datasend = {
+                title: title,
+                tanggal: new Date().toLocaleString(),
+                content: data,
+                categori: categori
+            }
+            const url = '/save-posting';
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(datasend) // body data type must match 'Content-Typ' header
+            })
+                .then((resp) => resp.json())
+                .then((data) => {
+                    console.log(data.data.STATUS);
+                    document.querySelector('.pesan').innerHTML = '<strong>Content berhasil di simpan</strong>';
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+        })
+
+    </script>
+
+</body>
+
+</html>

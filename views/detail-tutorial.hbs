@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{> header }}
+    <style>
+        pre {
+            margin: 20px auto;
+            background-color: #232323;
+            width: auto;
+            color: #ECF0F1;
+            padding: 10px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            margin-top: 5px;
+        }
+
+        p {
+            margin-bottom: 0px;
+            margin-top: 5px;
+        }
+
+        .marker {
+            background-color: gray;
+            padding: 5px;
+            font-size: 13px;
+            color: white;
+        }
+    </style>
+    <title>Tutorial</title>
+</head>
+
+
+<body style="font-family:georgia,garamond,serif;">
+    {{> navbar }}
+
+    <div class="container" style="margin-top: 65px;">
+        <div class="row">
+
+            <!-- Right side -->
+            <div class="col-md-8">
+                <div class="latest-project mt-5 p-4">
+                    <div class="media">
+                        {{!-- looping data users --}}
+                        {{#each results}}
+                        <img src="/assets/image/belajar-coding.jpg" class="align-self-start mr-3 rounded"
+                            style="width: 64px;height: 64px">
+                        <div class="media-body">
+                            <h5 class="mt-0">{{title}}</h5>
+                            <span>| Last updated: {{tanggal}}</span>
+                            <hr>
+                            <section class="media-content">
+                                {{{content}}}
+                            </section>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <!-- end right side -->
+
+            <!-- Left side -->
+            <div class="col-md-4">
+
+                <div class="education mt-5 p-4">
+                    <h2 class="pb-2">Lates Article Post</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum voluptatibus voluptatum, iste
+                        doloremque nulla iusto asperiores. Voluptatibus eum n</p>
+                </div>
+            </div>
+            <!-- end left side -->
+
+
+        </div>
+
+    </div>
+
+
+    {{> footer }}
+    <script>
+
+    </script>
+</body>
+
+</html>
