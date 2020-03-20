@@ -92,28 +92,28 @@
                     <p>I still learn to develop my skills which is as a Web Developer and also a Mobile Developer.</p>
                     <h5>PHP</h5>
                     <div class="progress mb-3">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 70%;" aria-valuenow="70"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="70"
+                            aria-valuemin="0" aria-valuemax="100" data-percentage="70"></div>
                     </div>
                     <h5>JavaScript & jQuery</h5>
                     <div class="progress mb-3">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 75%;" aria-valuenow="75"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="75"
+                            aria-valuemin="0" aria-valuemax="100" data-percentage="75"></div>
                     </div>
                     <h5>HTML5 & CSS</h5>
                     <div class="progress mb-3">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 80%;" aria-valuenow="80"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="80"
+                            aria-valuemin="0" aria-valuemax="100" data-percentage="80"></div>
                     </div>
                     <h5>React Native</h5>
                     <div class="progress mb-3">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 65%;" aria-valuenow="65"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="65"
+                            aria-valuemin="0" aria-valuemax="100" data-percentage="65"></div>
                     </div>
                     <h5>NodeJS</h5>
                     <div class="progress mb-3">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="60"
+                            aria-valuemin="0" aria-valuemax="100" data-percentage="60"></div>
                     </div>
                 </div>
 
@@ -142,6 +142,47 @@
 
 
     {{> footer }}
+
+    <script>
+
+        function Progresbar() {
+            setTimeout(function () {
+
+                $('.progress .progress-bar').each(function () {
+                    var me = $(this);
+                    var perc = me.attr("data-percentage");
+
+                    var current_perc = 0;
+
+                    var progress = setInterval(function () {
+                        if (current_perc >= perc) {
+                            clearInterval(progress);
+                        } else {
+                            current_perc += 10;
+                            me.css('width', (current_perc) + '%');
+                        }
+
+                        //me.text((current_perc) + '%');
+
+                    }, 50);
+
+                });
+
+            }, 100);
+        }
+
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            console.log(currentScrollPos)
+            if (currentScrollPos > 300) {
+                this.Progresbar()
+            }
+            if (currentScrollPos > 1800) {
+                this.Progresbar()
+            }
+        }
+    </script>
 
 </body>
 
