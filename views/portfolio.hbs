@@ -173,12 +173,12 @@
 
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function () {
-            var currentScrollPos = window.pageYOffset;
-            console.log(currentScrollPos)
-            if (currentScrollPos > 300) {
+            var currentScroll = window.pageYOffset;
+            console.log(currentScroll)
+            if (currentScroll > 300) {
                 this.Progresbar()
             }
-            if (currentScrollPos > 1800) {
+            if (currentScroll > 1800) {
                 this.Progresbar()
             }
         }
