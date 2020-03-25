@@ -20,7 +20,7 @@
                 <div class="col-md-2 d-flex justify-content-center">
                     <img src="/assets/image/profile_lingkaran.png" alt="" width="185px" class="rounded">
                 </div>
-                <div class="col-md-6 justify-content-center">
+                <div class="col-md-6 justify-content-center mt-4">
                     <h1>Sandy Wajongkere</h1>
                     <h5>Full-Stack Developer</h5>
                 </div>
@@ -145,43 +145,7 @@
 
     <script>
 
-        function Progresbar() {
-            setTimeout(function () {
 
-                $('.progress .progress-bar').each(function () {
-                    var me = $(this);
-                    var perc = me.attr("data-percentage");
-
-                    var current_perc = 0;
-
-                    var progress = setInterval(function () {
-                        if (current_perc >= perc) {
-                            clearInterval(progress);
-                        } else {
-                            current_perc += 10;
-                            me.css('width', (current_perc) + '%');
-                        }
-
-                        //me.text((current_perc) + '%');
-
-                    }, 50);
-
-                });
-
-            }, 100);
-        }
-
-        var prevScrollpos = window.pageYOffset;
-        window.onscroll = function () {
-            var currentScroll = window.pageYOffset;
-            console.log(currentScroll)
-            if (currentScroll > 300) {
-                this.Progresbar()
-            }
-            if (currentScroll > 1800) {
-                this.Progresbar()
-            }
-        }
     </script>
 
 </body>

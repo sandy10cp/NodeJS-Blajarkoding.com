@@ -25,13 +25,49 @@
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
+        var currentScroll = window.pageYOffset;
+        console.log(currentScroll)
+        if (currentScroll > 300) {
+            this.Progresbar()
+        }
+        if (currentScroll > 1800) {
+            this.Progresbar()
+        }
         if (prevScrollpos > currentScrollPos) {
             document.getElementById("navbar").style.top = "0";
         } else {
+            document.getElementById("navbar").style.transition = "1s";
             document.getElementById("navbar").style.top = "-70px";
         }
         prevScrollpos = currentScrollPos;
     }
+
+    function Progresbar() {
+        setTimeout(function () {
+
+            $('.progress .progress-bar').each(function () {
+                var me = $(this);
+                var perc = me.attr("data-percentage");
+
+                var current_perc = 0;
+
+                var progress = setInterval(function () {
+                    if (current_perc >= perc) {
+                        clearInterval(progress);
+                    } else {
+                        current_perc += 10;
+                        me.css('width', (current_perc) + '%');
+                    }
+
+                    //me.text((current_perc) + '%');
+
+                }, 50);
+
+            });
+
+        }, 100);
+    }
+
 </script>
 </body>
 

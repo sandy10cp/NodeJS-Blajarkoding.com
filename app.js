@@ -173,5 +173,5 @@ app.use('*', function (req, res) {
 const PORT = process.env.PORT | 8000;
 //create port
 app.listen(PORT, () => {
-    console.log(`Server running at port ${PORT}`);
+    console.log(`Server running at port http://localhost:${PORT}`);
 });
